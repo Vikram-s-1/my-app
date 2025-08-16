@@ -1,31 +1,42 @@
 "use client";
+import Image from "next/image";
 import { supabase } from '../../utils/supabaseClient';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) setError(error.message);
-    else router.push('/dashboard');
+    else router.push("/dashboard");
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <form onSubmit={handleLogin} className="bg-white p-8 rounded shadow w-80">
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
-        <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} className="w-full mb-2 p-2 border rounded" required />
-        <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="w-full mb-2 p-2 border rounded" required />
-        {error && <p className="text-red-500 mb-2">{error}</p>}
-        <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded">Login</button>
-        <p className="mt-2 text-sm">Don't have an account? <a href="/register" className="text-blue-600">Register</a></p>
-      </form>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-white">
+      <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md flex flex-col items-center">
+        <Image src="/laundry-logo.svg" alt="LaundryPro Logo" width={80} height={80} className="mb-4" />
+        <h2 className="text-3xl font-extrabold text-indigo-700 mb-2">LaundryPro Login</h2>
+        <p className="text-gray-500 mb-6 text-center">Welcome back! Enter your details to keep your clothes fresh and clean.</p>
+        <form onSubmit={handleLogin} className="w-full flex flex-col gap-3">
+          <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} className="w-full p-3 border border-indigo-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" required />
+          <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="w-full p-3 border border-indigo-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" required />
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+          <button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-bold transition">Login</button>
+        </form>
+        <div className="mt-6 text-sm text-gray-600">
+          Don't have an account? <a href="/register" className="text-indigo-600 font-semibold hover:underline">Register</a>
+        </div>
+        <div className="mt-8 flex flex-col items-center">
+          <Image src="/file.svg" alt="Laundry Icon" width={40} height={40} className="mb-2" />
+          <span className="text-xs text-gray-400">"Clean Clothes, Happy Life"</span>
+        </div>
+      </div>
     </div>
   );
 }
