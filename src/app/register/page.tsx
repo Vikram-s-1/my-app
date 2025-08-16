@@ -49,9 +49,9 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center px-4 py-12">
-      <div className="absolute inset-0 bg-pattern opacity-5"></div>
-      <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 w-full max-w-xl relative transform hover:scale-[1.01] transition-all">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 flex items-center justify-center px-4 py-12">
+      <div className="absolute inset-0 bg-pattern opacity-10"></div>
+      <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl p-6 w-full max-w-md relative transform hover:scale-[1.01] transition-all">
         <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
           <div className="bg-white rounded-full p-3 shadow-lg">
             <Image src="/laundry-logo.svg" alt="LaundryPro Logo" width={60} height={60} className="animate-pulse" />
