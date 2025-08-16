@@ -18,9 +18,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 flex items-center justify-center px-4 py-12">
-      <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10"></div>
-      <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl p-6 w-full max-w-sm relative transform hover:scale-[1.01] transition-all">
+    <div className="min-h-screen bg-gradient-to-br from-purple-800 via-purple-700 to-purple-900 flex items-center justify-center px-4 py-12">
+      <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-20 mix-blend-soft-light"></div>
+      <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-6 w-full max-w-sm relative transform hover:scale-[1.01] transition-all shadow-purple-900/20">
         <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
           <div className="bg-white rounded-full p-3 shadow-lg">
             <Image src="/laundry-logo.svg" alt="LaundryPro Logo" width={60} height={60} className="animate-pulse" />
